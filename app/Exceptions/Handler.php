@@ -36,4 +36,23 @@ class Handler extends ExceptionHandler
             return parent::render($request, $exception);
         });
     }
+
+    public function render($request, Throwable $exception)
+    {
+        if ($exception instanceof AuthenticationException) {
+            return $this->unauthenticated($request, $exception);
+        }
+
+        return parent::render($request, $exception);
+    }
+
+    protected function unauthenticated($request, AuthenticationException $exception)
+    {
+        if ($request->expectsJson()) {
+            return response()->json(['error' => 'Invalid token or unauthorized.'], 401);
+        }
+
+        return response()->json(['status' => false, 'error' => 'Invalid token or Unauthorized.'], 401);
+        // return redirect()->guest(route('login'));
+    }
 }

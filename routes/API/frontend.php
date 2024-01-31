@@ -5,10 +5,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'v1/', 'namespace'=>'App\Http\Controllers\API\Frontend' ], function() {
 
-    // OTP
-    // Route::post('get-otp', 'OtpMailController@getOtp');
-    // Route::post('otp-validate', 'OtpMailController@otpValidation');
-
     // Auth
     Route::post('register', 'AuthController@register');
     Route::post('login', 'AuthController@login');
