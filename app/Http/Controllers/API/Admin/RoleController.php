@@ -14,10 +14,10 @@ class RoleController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permission:role-list', ['only' => ['index']]);
-        $this->middleware('permission:role-create', ['only' => ['store']]);
-        $this->middleware('permission:role-edit', ['only' => ['update']]);
-        $this->middleware('permission:role-delete', ['only' => ['destroy']]);
+        $this->middleware('json.response:role-list', ['only' => ['index']]);
+        $this->middleware('json.response:role-create', ['only' => ['store']]);
+        $this->middleware('json.response:role-edit', ['only' => ['update']]);
+        $this->middleware('json.response:role-delete', ['only' => ['destroy']]);
     }
 
     public function index(Request $request)

@@ -11,7 +11,7 @@ class TransactionController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permission:transaction-list', ['only' => ['index']]);
+        $this->middleware('json.response:transaction-list', ['only' => ['index']]);
     }
 
     public function index()

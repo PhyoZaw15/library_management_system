@@ -16,10 +16,10 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permission:user-list', ['only' => ['index']]);
-        $this->middleware('permission:user-create', ['only' => ['store']]);
-        $this->middleware('permission:user-edit', ['only' => ['update']]);
-        $this->middleware('permission:user-delete', ['only' => ['destroy']]);
+        $this->middleware('json.response:user-list', ['only' => ['index']]);
+        $this->middleware('json.response:user-create', ['only' => ['store']]);
+        $this->middleware('json.response:user-edit', ['only' => ['update']]);
+        $this->middleware('json.response:user-delete', ['only' => ['destroy']]);
     }
 
     public function index()

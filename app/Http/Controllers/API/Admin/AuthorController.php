@@ -13,10 +13,10 @@ class AuthorController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permission:author-list', ['only' => ['index']]);
-        $this->middleware('permission:author-create', ['only' => ['store']]);
-        $this->middleware('permission:author-edit', ['only' => ['update']]);
-        $this->middleware('permission:author-delete', ['only' => ['destroy']]);
+        $this->middleware('json.response:author-list', ['only' => ['index']]);
+        $this->middleware('json.response:author-create', ['only' => ['store']]);
+        $this->middleware('json.response:author-edit', ['only' => ['update']]);
+        $this->middleware('json.response:author-delete', ['only' => ['destroy']]);
     }
 
     public function index()

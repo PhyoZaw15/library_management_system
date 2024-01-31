@@ -13,10 +13,10 @@ class CategoryController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permission:category-list', ['only' => ['index']]);
-        $this->middleware('permission:category-create', ['only' => ['store']]);
-        $this->middleware('permission:category-edit', ['only' => ['update']]);
-        $this->middleware('permission:category-delete', ['only' => ['destroy']]);
+        $this->middleware('json.response:category-list', ['only' => ['index']]);
+        $this->middleware('json.response:category-create', ['only' => ['store']]);
+        $this->middleware('json.response:category-edit', ['only' => ['update']]);
+        $this->middleware('json.response:category-delete', ['only' => ['destroy']]);
     }
 
     public function index()
