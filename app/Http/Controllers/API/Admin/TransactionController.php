@@ -9,6 +9,11 @@ use App\Services\ApiResponse;
 
 class TransactionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:transaction-list', ['only' => ['index']]);
+    }
+
     public function index()
     {
         $data = BorrowBook::with('user', 'book')->get();

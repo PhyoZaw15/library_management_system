@@ -10,6 +10,11 @@ use App\Services\ApiResponse;
 
 class BorrowBookController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:approve', ['only' => ['approveByAdmin']]);
+    }
+
     public function approveByAdmin(Request $request)
     {
         $validator = Validator::make($request->all(), [

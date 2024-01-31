@@ -9,7 +9,7 @@ use Hash;
 use App\Models\User;
 use Illuminate\Support\Arr;
 use Spatie\Permission\Models\Role;
-use App\ApiResponse;
+use App\Services\ApiResponse;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
